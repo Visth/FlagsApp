@@ -20,24 +20,36 @@ const createFlagImgElement = (country) => {
 
 	imgContaierElement.appendChild(imgElement);
 
-    return imgContaierElement;
+	return imgContaierElement;
 };
 
 const createCountryItemElement = (country) => {
 	const countryElement = document.createElement("li");
 
-	const countryNameElement = document.createElement("span");
+	countryElement.appendChild(createFlagImgElement(country));
+
+	const infoContainerElement = document.createElement("div");
+	infoContainerElement.classList.add("info-container");
+
+	const countryNameElement = document.createElement("strong");
 	countryNameElement.innerText = country.name;
+	countryNameElement.classList.add("country-name");
 
-    countryElement.appendChild(createFlagImgElement(country));
+	infoContainerElement.appendChild(countryNameElement);
 
-	countryElement.appendChild(countryNameElement);
+	infoContainerElement.appendChild(
+		createInfoElement("Population", country.population)
+	);
 
-	countryElement.appendChild(createInfoElement("Population", country.population));
+	infoContainerElement.appendChild(
+		createInfoElement("Region", country.region)
+	);
 
-	countryElement.appendChild(createInfoElement("Region", country.region));
+	infoContainerElement.appendChild(
+		createInfoElement("Capital", country.capital)
+	);
 
-	countryElement.appendChild(createInfoElement("Capital", country.capital));
+	countryElement.appendChild(infoContainerElement);
 
 	return countryElement;
 };

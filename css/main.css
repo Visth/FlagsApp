@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+body {
+  font-size: 14px;
+}
+
 header,
 main {
   max-width: 1280px;
@@ -25,4 +29,10 @@ ul {
 ul li img {
   aspect-ratio: 160/98;
   width: 100%;
+}
+ul li .country-name {
+  font-size: 18px;
+}
+ul li .info-container {
+  padding: 30px 20px;
 }/*# sourceMappingURL=main.css.map */
