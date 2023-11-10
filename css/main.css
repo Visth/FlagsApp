@@ -12,6 +12,8 @@
 
 body {
   font-size: 14px;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--color-background);
 }
 
 header,
@@ -26,11 +28,18 @@ ul {
   gap: 60px;
   list-style: none;
 }
+ul li {
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+}
 ul li img {
   aspect-ratio: 160/98;
   width: 100%;
 }
 ul li .country-name {
+  display: block;
+  margin-bottom: 10px;
   font-size: 18px;
 }
 ul li .info-container {
