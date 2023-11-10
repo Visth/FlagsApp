@@ -44,4 +44,20 @@ ul li .country-name {
 }
 ul li .info-container {
   padding: 30px 20px;
+}
+
+@media only screen and (max-width: 992px) {
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 768px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 576px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
 }/*# sourceMappingURL=main.css.map */
