@@ -2,7 +2,7 @@
     --color-text: hsl(200, 15%, 8%);
     --color-input: hsl(0, 0%, 52%);
     --color-background: hsl(0, 0%, 98%);
-    // --color-white: hsl(0, 0%, 100%);
+    // --color-header-background: hsl(0, 0%, 100%);
 }
 
 * {
@@ -13,6 +13,7 @@
 
 body {
     font-size: 14px;
+    padding: 0 32px;
     font-family: 'Nunito Sans', sans-serif;
     background-color: var(--color-background);
 }
@@ -21,6 +22,20 @@ header,
 main {
     max-width: 1280px;
     margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px auto 64px;
+
+    button {
+        padding: 10px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 ul {
