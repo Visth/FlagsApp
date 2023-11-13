@@ -22,6 +22,52 @@ header,
 main {
     max-width: 1280px;
     margin: 0 auto;
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 60px;
+        list-style: none;
+    
+        li {
+            border-radius: 8px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            overflow: hidden;
+    
+            img {
+                aspect-ratio: 160/98;
+                width: 100%;
+            }
+    
+            .country-name {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+    
+            .info-container {
+                padding: 30px 20px;
+            }
+        }
+    }
+
+    .filters {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        #query, #region {
+            font-size: 22px;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        #query {
+            width: 30%;
+        }
+    }
 }
 
 header {
@@ -38,49 +84,27 @@ header {
     }
 }
 
-ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
-    list-style: none;
-
-    li {
-        border-radius: 8px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        overflow: hidden;
-
-        img {
-            aspect-ratio: 160/98;
-            width: 100%;
-        }
-
-        .country-name {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .info-container {
-            padding: 30px 20px;
-        }
-    }
-}
-
 
 @media only screen and (max-width: 992px) {
-    ul {
-        grid-template-columns: repeat(3, 1fr);
+    main {
+        ul {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }
 
 @media only screen and (max-width: 768px) {
-    ul {
-        grid-template-columns: repeat(2, 1fr);
+    main {
+        ul {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 }
 
 @media only screen and (max-width: 576px) {
-    ul {
-        grid-template-columns: 1fr;
+    main {
+        ul {
+            grid-template-columns: 1fr;
+        }
     }
 }
