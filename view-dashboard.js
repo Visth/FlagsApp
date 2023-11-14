@@ -15,6 +15,7 @@ const API_URL_ALL = "https://restcountries.com/v3.1/all";
 					capital: country.capital && country.capital[0],
 					population: country.population.toLocaleString(),
 					name: country.name.common,
+                    code: country.cioc,
 					region: country.region,
 					flagUrl: country.flags.png,
 				};
