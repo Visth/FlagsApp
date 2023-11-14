@@ -18,11 +18,7 @@ body {
 }
 
 .filters {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 32px;
+  display: none;
 }
 .filters #query, .filters #region {
   font-size: 22px;
@@ -33,6 +29,14 @@ body {
 }
 .filters #query {
   width: 30%;
+}
+
+.filters.active {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 32px;
 }
 
 header,
@@ -52,6 +56,11 @@ main ul li {
   border-radius: 8px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   overflow: hidden;
+}
+header ul li a,
+main ul li a {
+  color: var(--color-text);
+  text-decoration: none;
 }
 header ul li img,
 main ul li img {

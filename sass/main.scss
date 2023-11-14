@@ -19,11 +19,7 @@ body {
 }
 
 .filters {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1280px;
-    margin: 0 auto;
-    margin-bottom: 32px;
+    display: none;
 
     #query, #region {
         font-size: 22px;
@@ -36,6 +32,14 @@ body {
     #query {
         width: 30%;
     }
+}
+
+.filters.active {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 32px;
 }
 
 header,
@@ -53,6 +57,11 @@ main {
             border-radius: 8px;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             overflow: hidden;
+
+            a {
+                color: var(--color-text);
+                text-decoration: none;
+            }
     
             img {
                 aspect-ratio: 160/98;
