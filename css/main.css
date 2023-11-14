@@ -17,6 +17,24 @@ body {
   background-color: var(--color-background);
 }
 
+.filters {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+.filters #query, .filters #region {
+  font-size: 22px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.filters #query {
+  width: 30%;
+}
+
 header,
 main {
   max-width: 1280px;
@@ -49,25 +67,6 @@ main ul li .country-name {
 header ul li .info-container,
 main ul li .info-container {
   padding: 30px 20px;
-}
-header .filters,
-main .filters {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 32px;
-}
-header .filters #query, header .filters #region,
-main .filters #query,
-main .filters #region {
-  font-size: 22px;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-header .filters #query,
-main .filters #query {
-  width: 30%;
 }
 
 header {
