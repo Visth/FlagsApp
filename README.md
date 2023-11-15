@@ -2,11 +2,11 @@
 
 ## Screenshots
 <p align="center">
-    <img src="./img/README_images/readme_image_01.png" width="80%" height="400px"></img>
+    <img src="./img/README_images/image_01.png" width="80%" height="400px"></img>
     <br/>
-    <img src="./img/README_images/readme_image_02.png" width="80%" height="400px"></img>
+    <img src="./img/README_images/image_02.png" width="80%" height="400px"></img>
     <br/>
-    <img src="./img/README_images/readme_image_03.png" width="80%" height="400px"></img>
+    <img src="./img/README_images/image_03.png" width="80%" height="400px"></img>
 </p>
 
 <hr/>
