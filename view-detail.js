@@ -29,6 +29,7 @@ export const renderDetail = () => {
                     .map((currency) => currency.name)
                     .join(", "),
 					languages: Object.values(country.languages).join(", "),
+                    borders: country.borders,
 					flagUrl: country.flags.png,
 				};
                 renderCountryDetail(country)

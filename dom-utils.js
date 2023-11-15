@@ -71,55 +71,82 @@ const createListElement = (countries) => {
 
 const createDetailElement = (country) => {
 	const detailContainerElement = document.createElement("div");
+
 	const flagImgElement = createFlagImgElement(country);
+	const detailContentElement = document.createElement("div");
+	detailContainerElement.classList.add("detail-container");
 	const detailNameElement = document.createElement("strong");
 	detailNameElement.innerHTML = country.name;
+	detailNameElement.classList.add("detail-name")
 
 	detailContainerElement.appendChild(flagImgElement);
-	detailContainerElement.appendChild(detailNameElement);
+	detailContentElement.appendChild(detailNameElement);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Native Name", country.nativeName)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Population", country.population)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Region", country.region)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Sub Region", country.subregion)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Capital", country.capital)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Top Level Domain", country.tld)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Currencies", country.currencies)
 	);
 
-	detailContainerElement.appendChild(
+	detailContentElement.appendChild(
 		createInfoElement("Languages", country.languages)
 	);
+
+	if (country.borders && country.borders.length > 0) {
+		detailContainerElement.appendChild(
+			createBorderCountriesContainer(country)
+		);
+	}
+
+	detailContainerElement.appendChild(detailContentElement);
 
 	return detailContainerElement;
 };
 
-const createBackButtonElement = () => {
+const createDetailButton = (text, link) => {
 	const anchorElement = document.createElement("a");
-	anchorElement.innerText = "Go back";
-	anchorElement.classList.add("detail-back-link");
-	anchorElement.href = "/";
+	anchorElement.innerText = text;
+	anchorElement.classList.add("detail-button");
+	anchorElement.href = link;
 
 	return anchorElement;
+};
+
+const createBorderCountriesContainer = (country) => {
+	const borderCountriesContainerElement = document.createElement("div");
+	const labelElement = document.createElement("strong");
+	labelElement.innerHTML = "Border Countries";
+
+	borderCountriesContainerElement.appendChild(labelElement);
+
+	country.borders.forEach((border) => {
+		borderCountriesContainerElement.appendChild(
+			createDetailButton(border, `/?country=${border}`)
+		);
+	});
+	return borderCountriesContainerElement;
 };
 
 export const renderCountriesList = (countries) => {
@@ -131,6 +158,6 @@ export const renderCountriesList = (countries) => {
 export const renderCountryDetail = (country) => {
 	const rootElement = document.querySelector("#root");
 	rootElement.innerHTML = "";
-	rootElement.appendChild(createBackButtonElement());
+	rootElement.appendChild(createDetailButton("Go back", "/"));
 	rootElement.appendChild(createDetailElement(country));
 };
