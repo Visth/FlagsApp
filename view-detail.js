@@ -1,3 +1,5 @@
+import { renderCountryDetail } from "./dom-utils.js";
+
 export const renderDetail = () => {
 	const searchParams = new URLSearchParams(window.location.search);
 	const countryCode = searchParams.get("country");
@@ -11,26 +13,29 @@ export const renderDetail = () => {
 	fetch(API_URL_DETAIL)
 		.then((res) => res.json())
 		.then(([country]) => {
-            if(!country) {
-                goBackToDashboard();
-            } else {
-                country = {
-                    capital: country.capital && country.capital[0],
+			if (!country) {
+				goBackToDashboard();
+			} else {
+				country = {
+					capital: country.capital && country.capital[0],
 					population: country.population.toLocaleString(),
 					name: country.name.common,
-                    nativeName: country.name.nativeName,
-                    code: country.cioc,
+					nativeName: Object.values(country.name.nativeName)[0].official,
+					code: country.cioc,
 					region: country.region,
-                    subregion: country.subregion,
-                    tld: country.tld[0],
-                    currencies: country.currencies,
-                    languages: country.languages,
+					subregion: country.subregion,
+					tld: country.tld[0],
+					currencies: Object.values(country.currencies)
+                    .map((currency) => currency.name)
+                    .join(", "),
+					languages: Object.values(country.languages).join(", "),
 					flagUrl: country.flags.png,
-                };
-            }
-        });
+				};
+                renderCountryDetail(country)
+			}
+		});
 };
 
 const goBackToDashboard = () => {
-    window.location.href = "/";
-}
+	window.location.href = "/";
+};
