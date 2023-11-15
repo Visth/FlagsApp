@@ -75,6 +75,8 @@ const createDetailElement = (country) => {
 	const flagImgElement = createFlagImgElement(country);
 	const detailContentElement = document.createElement("div");
 	detailContainerElement.classList.add("detail-container");
+	detailContentElement.classList.add("detail-content");
+	
 	const detailNameElement = document.createElement("strong");
 	detailNameElement.innerHTML = country.name;
 	detailNameElement.classList.add("detail-name")
@@ -114,13 +116,13 @@ const createDetailElement = (country) => {
 		createInfoElement("Languages", country.languages)
 	);
 
+	detailContainerElement.appendChild(detailContentElement);
+
 	if (country.borders && country.borders.length > 0) {
 		detailContainerElement.appendChild(
 			createBorderCountriesContainer(country)
 		);
 	}
-
-	detailContainerElement.appendChild(detailContentElement);
 
 	return detailContainerElement;
 };
@@ -137,7 +139,7 @@ const createDetailButton = (text, link) => {
 const createBorderCountriesContainer = (country) => {
 	const borderCountriesContainerElement = document.createElement("div");
 	const labelElement = document.createElement("strong");
-	labelElement.innerHTML = "Border Countries";
+	labelElement.innerHTML = "Border Countries: ";
 
 	borderCountriesContainerElement.appendChild(labelElement);
 
